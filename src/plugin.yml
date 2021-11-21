@@ -1,0 +1,5 @@
+name: NoVillagerBreeding
+version: 1
+author: whimsicalities
+main: uk.whimsicalities.novillagerbreeding.NoVillagerBreeding
+api-version: 1.17

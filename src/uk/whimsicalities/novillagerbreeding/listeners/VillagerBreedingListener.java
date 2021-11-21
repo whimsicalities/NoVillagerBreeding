@@ -8,17 +8,19 @@ import org.bukkit.event.entity.EntityBreedEvent;
 import uk.whimsicalities.novillagerbreeding.NoVillagerBreeding;
 
 public class VillagerBreedingListener implements Listener {
-    private NoVillagerBreeding plugin = null;
+    private NoVillagerBreeding plugin;
+    private String alertMessage;
 
-    public VillagerBreedingListener(NoVillagerBreeding p){
+    public VillagerBreedingListener(NoVillagerBreeding p, String messageOnFail){
         this.plugin = p;
+        this.alertMessage = messageOnFail;
     }
 
     @EventHandler
     public void onVillagerBreeding(EntityBreedEvent e){
-        if (e.getEntity().getType() == EntityType.VILLAGER){
+        if (e.getEntity().getType() == EntityType.PIG){
             e.getEntity().remove();
-            Bukkit.getServer().broadcastMessage("[SERVER] Villager breeding is not enabled on this server.");
+            Bukkit.getServer().broadcastMessage(alertMessage);
         }
     }
 }
